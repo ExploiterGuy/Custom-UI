@@ -116,52 +116,66 @@ function Library:Create(table)
 
     dragify(main)
 
--- Immediately after dragify(main)
-main.ClipsDescendants = true  -- Ensures children outside main's bounds are hidden
+    -- Immediately after dragify(main)
+    main.ClipsDescendants = true  -- Ensures children outside main's bounds are hidden
 
-local minimized = false
-local originalSize = main.Size
+    local isMinimized = false
+    local originalSize = main.Size
+    
+    local toggleButton = Instance.new("TextButton")
+    toggleButton.Name = "ToggleButton"
+    toggleButton.Text = "-"  
+    toggleButton.Font = Enum.Font.Gotham
+    toggleButton.TextSize = 20
+    toggleButton.TextColor3 = Color3.fromRGB(200,230,255)
+    toggleButton.BackgroundColor3 = Color3.fromRGB(20, 30, 40) 
+    toggleButton.BackgroundTransparency = 1
+    toggleButton.Size = UDim2.fromOffset(30, 30)
+    toggleButton.Position = UDim2.new(1, -35, 0, 5)  -- top-right corner; adjust as needed
+    toggleButton.Parent = main
 
--- Create the Toggle Button (Minimize/Maximize)
-local toggleButton = Instance.new("TextButton")
-toggleButton.Name = "ToggleButton"
-toggleButton.BackgroundColor3 = Color3.fromRGB(30, 50, 70)  -- matches your UI theme
-toggleButton.Size = UDim2.fromOffset(20, 20)
-toggleButton.Position = UDim2.new(1, -25, 0, 5)  -- top-right corner of main
-toggleButton.AnchorPoint = Vector2.new(1, 0)
-toggleButton.Text = "-"  -- "-" indicates the UI is currently maximized
-toggleButton.Font = Enum.Font.Gotham
-toggleButton.TextColor3 = Color3.fromRGB(200, 230, 255)
-toggleButton.TextSize = 20
-toggleButton.Parent = main
-
-local toggleUICorner = Instance.new("UICorner")
-toggleUICorner.CornerRadius = UDim.new(0, 4)
-toggleUICorner.Parent = toggleButton
-
--- Helper function: Toggles the Visible property of all children (except title and toggle button)
 local function setUIVisibility(visible)
     for _, child in ipairs(main:GetChildren()) do
         if child:IsA("GuiObject") and child.Name ~= "title" and child.Name ~= "ToggleButton" then
             child.Visible = visible
         end
     end
+
+    -- Ibalik ang active tab
+    if visible then
+        for _, v in pairs(main:GetChildren()) do
+            if v.Name == "container" then
+                v.Visible = false  -- Itago lahat ng container
+            end
+        end
+
+        -- Hanapin ang active tab at ipakita ito
+        for _, tab in pairs(tabContainer:GetChildren()) do
+            if tab:IsA("TextButton") and tab.TextTransparency == 0 then
+                local activeContainer = main:FindFirstChild(tab.Name)
+                if activeContainer then
+                    activeContainer.Visible = true
+                end
+                break
+            end
+        end
+    end
 end
 
-toggleButton.MouseButton1Click:Connect(function()
-    if not minimized then
-        minimized = true
-        -- Tween main's size to only show the title bar (here, 40 pixels tall)
-        TS:Create(main, TweenInfo.new(0.3), {Size = UDim2.new(originalSize.X.Scale, originalSize.X.Offset, 0, 40)}):Play()
-        toggleButton.Text = "+"  -- now indicates you can click to maximize
-        setUIVisibility(false)   -- hide all other children of main
-    else
-        minimized = false
-        TS:Create(main, TweenInfo.new(0.3), {Size = originalSize}):Play()
-        toggleButton.Text = "-"  -- back to minimized state indicator
-        setUIVisibility(true)    -- show all the children again
-    end
-end)
+    toggleButton.MouseButton1Click:Connect(function()
+        if not minimized then
+            minimized = true
+            -- Tween main's size to only show the title bar (here, 40 pixels tall)
+            TS:Create(main, TweenInfo.new(0.3), {Size = UDim2.new(originalSize.X.Scale, originalSize.X.Offset, 0, 40)}):Play()
+            toggleButton.Text = "+"  -- now indicates you can click to maximize
+            setUIVisibility(false)   -- hide all other children of main
+        else
+            minimized = false
+            TS:Create(main, TweenInfo.new(0.3), {Size = originalSize}):Play()
+            toggleButton.Text = "-"  -- back to minimized state indicator
+            setUIVisibility(true)    -- show all the children again
+        end
+    end)
 
    local tabHandler = {}
 
