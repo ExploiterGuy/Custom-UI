@@ -23,7 +23,7 @@ function Library:Create(table)
 
     local main = Instance.new("Frame")
     main.Name = "main"
-    main.BackgroundColor3 = Color3.fromRGB(28, 28, 28)
+    main.BackgroundColor3 = Color3.fromRGB(20, 30, 40) -- changed from (28,28,28) to a dark blue tone
     main.Position = UDim2.fromScale(0.244, 0.292)
     main.Size = UDim2.fromOffset(488, 299)
 
@@ -31,7 +31,7 @@ function Library:Create(table)
     title.Name = "title"
     title.Font = Enum.Font.Gotham
     title.Text = windowName
-    title.TextColor3 = Color3.fromRGB(168, 168, 168)
+    title.TextColor3 = Color3.fromRGB(200, 230, 255) -- changed from (168,168,168) to a light aqua
     title.TextSize = 20
     title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     title.BackgroundTransparency = 1
@@ -45,7 +45,7 @@ function Library:Create(table)
 
     local tabContainer = Instance.new("Frame")
     tabContainer.Name = "tabContainer"
-    tabContainer.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
+    tabContainer.BackgroundColor3 = Color3.fromRGB(25, 35, 50) -- changed from (33,33,33)
     tabContainer.Position = UDim2.fromScale(0.0342, 0.188)
     tabContainer.Size = UDim2.fromOffset(454, 30)
 
@@ -128,7 +128,7 @@ function Library:Create(table)
         main1.Name = name
         main1.Font = Enum.Font.Gotham
         main1.Text = name
-        main1.TextColor3 = Color3.fromRGB(195, 195, 195)
+        main1.TextColor3 = Color3.fromRGB(200, 230, 255) -- changed from (195,195,195)
         main1.TextSize = 13
         main1.TextTransparency = 0.5
         main1.AutomaticSize = Enum.AutomaticSize.X
@@ -140,7 +140,7 @@ function Library:Create(table)
         --// Creating the container
         local container = Instance.new("Frame")
         container.Name = "container"
-        container.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
+        container.BackgroundColor3 = Color3.fromRGB(25, 35, 50) -- changed from (33,33,33)
         container.Position = UDim2.fromScale(0.0342, 0.31)
         container.Size = UDim2.fromOffset(454, 183)
         
@@ -151,13 +151,13 @@ function Library:Create(table)
         
         local holder = Instance.new("ScrollingFrame")
         holder.Name = "holder"
-        holder.ScrollBarImageColor3 = Color3.fromRGB(76, 76, 76)
+        holder.ScrollBarImageColor3 = Color3.fromRGB(70, 130, 180) -- changed from (76,76,76)
         holder.ScrollBarThickness = 2
         holder.ScrollingDirection = Enum.ScrollingDirection.Y
         holder.Active = true
         holder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
         holder.BackgroundTransparency = 1
-        holder.BorderColor3 = Color3.fromRGB(33, 33, 33)
+        holder.BorderColor3 = Color3.fromRGB(25, 35, 50) -- changed from (33,33,33)
         holder.Position = UDim2.fromScale(0.0022, 0.00404)
         holder.Size = UDim2.fromOffset(452, 182)
 
@@ -203,7 +203,7 @@ function Library:Create(table)
         function ElementHandler:Label(text)
             local label = Instance.new("Frame")
             label.Name = "label"
-            label.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
+            label.BackgroundColor3 = Color3.fromRGB(30, 50, 70) -- changed from (38,38,38)
             label.Size = UDim2.fromOffset(441, 32)
             label.Parent = holder
     
@@ -216,9 +216,9 @@ function Library:Create(table)
             textLabel.Name = "textLabel"
             textLabel.Font = Enum.Font.Gotham
             textLabel.Text = text
-            textLabel.TextColor3 = Color3.fromRGB(195, 195, 195)
+            textLabel.TextColor3 = Color3.fromRGB(200, 230, 255) -- changed from (195,195,195)
             textLabel.TextSize = 13
-            textLabel.TextStrokeColor3 = Color3.fromRGB(195, 195, 195)
+            textLabel.TextStrokeColor3 = Color3.fromRGB(200, 230, 255) -- matching the new text color
             textLabel.TextXAlignment = Enum.TextXAlignment.Left
             textLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
             textLabel.BackgroundTransparency = 1
@@ -233,7 +233,7 @@ function Library:Create(table)
 
             local button = Instance.new("TextButton")
             button.Name = "button"
-            button.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
+            button.BackgroundColor3 = Color3.fromRGB(30, 50, 70) -- changed from (38,38,38)
             button.Position = UDim2.fromScale(0, 0.135)
             button.Size = UDim2.fromOffset(441, 32)
             button.Text = ""
@@ -248,9 +248,9 @@ function Library:Create(table)
             textLabel5.Name = "textLabel5"
             textLabel5.Font = Enum.Font.Gotham
             textLabel5.Text = text
-            textLabel5.TextColor3 = Color3.fromRGB(195, 195, 195)
+            textLabel5.TextColor3 = Color3.fromRGB(200, 230, 255) -- changed from (195,195,195)
             textLabel5.TextSize = 13
-            textLabel5.TextStrokeColor3 = Color3.fromRGB(195, 195, 195)
+            textLabel5.TextStrokeColor3 = Color3.fromRGB(200, 230, 255) -- changed from (195,195,195)
             textLabel5.TextXAlignment = Enum.TextXAlignment.Left
             textLabel5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
             textLabel5.BackgroundTransparency = 1
@@ -261,7 +261,7 @@ function Library:Create(table)
             local imageLabel = Instance.new("ImageLabel")
             imageLabel.Name = "imageLabel"
             imageLabel.Image = "http://www.roblox.com/asset/?id=9584292194"
-            imageLabel.ImageColor3 = Color3.fromRGB(195, 195, 195)
+            imageLabel.ImageColor3 = Color3.fromRGB(200, 230, 255) -- changed from (195,195,195)
             imageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
             imageLabel.BackgroundTransparency = 1
             imageLabel.Position = UDim2.fromScale(0.943, 0.219)
@@ -271,131 +271,15 @@ function Library:Create(table)
             button.Parent = holder
 
             button.MouseEnter:Connect(function()
-                game:GetService('TweenService'):Create(button, TweenInfo.new(0.3), {BackgroundColor3 = Color3.fromRGB(43,43,43)}):Play()
+                game:GetService('TweenService'):Create(button, TweenInfo.new(0.3), {BackgroundColor3 = Color3.fromRGB(35,55,75)}):Play()
             end)
 
             button.MouseLeave:Connect(function()
-                game:GetService('TweenService'):Create(button, TweenInfo.new(0.3), {BackgroundColor3 = Color3.fromRGB(38,38,38)}):Play()
+                game:GetService('TweenService'):Create(button, TweenInfo.new(0.3), {BackgroundColor3 = Color3.fromRGB(30,50,70)}):Play()
             end)
 
             button.MouseButton1Click:Connect(function()
                 callback()
-            end)
-        end
-
-        function ElementHandler:Slider(text, default, min, max, callback)
-            text = text or "Slider"
-            callback = callback or function() end
-
-            local TweenService = game:GetService("TweenService")
-            local UserInputService = game:GetService("UserInputService")
-
-            local slider = Instance.new("TextButton")
-            slider.Name = "slider"
-            slider.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
-            slider.Size = UDim2.fromOffset(441, 32)
-            slider.Text = ""
-            slider.AutoButtonColor = false
-
-            local uICorner4 = Instance.new("UICorner")
-            uICorner4.CornerRadius = UDim.new(0, 6)
-            uICorner4.Parent = slider
-
-            local textLabel1 = Instance.new("TextLabel")
-            textLabel1.Name = "textLabel1"
-            textLabel1.Font = Enum.Font.Gotham
-            textLabel1.Text = text
-            textLabel1.TextColor3 = Color3.fromRGB(195, 195, 195)
-            textLabel1.TextSize = 13
-            textLabel1.TextStrokeColor3 = Color3.fromRGB(195, 195, 195)
-            textLabel1.TextXAlignment = Enum.TextXAlignment.Left
-            textLabel1.BackgroundTransparency = 1
-            textLabel1.Position = UDim2.fromScale(0.0181, 0)
-            textLabel1.Size = UDim2.fromOffset(1, 32)
-            textLabel1.Parent = slider
-
-            -- The slider bar (track)
-            local frame = Instance.new("Frame")
-            frame.Name = "frame"
-            frame.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
-            frame.Position = UDim2.fromScale(0.753, 0.375)
-            frame.Size = UDim2.fromOffset(102, 8)
-            local uICorner5 = Instance.new("UICorner")
-            uICorner5.CornerRadius = UDim.new(0, 3)
-            uICorner5.Parent = frame
-
-            -- The fill indicator that will be tweened according to the slider’s percentage
-            local frame1 = Instance.new("Frame")
-            frame1.Name = "frame1"
-            frame1.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-            frame1.Position = UDim2.fromScale(0, 0) -- start at 0%
-            frame1.Size = UDim2.fromScale(0, 1) -- will update based on input
-            local uICorner6 = Instance.new("UICorner")
-            uICorner6.CornerRadius = UDim.new(0, 3)
-            uICorner6.Parent = frame1
-            frame1.Parent = frame
-            frame.Parent = slider
-
-            local textLabel2 = Instance.new("TextLabel")
-            textLabel2.Name = "textLabel2"
-            textLabel2.Font = Enum.Font.Gotham
-            textLabel2.Text = tostring(default)
-            textLabel2.TextColor3 = Color3.fromRGB(195, 195, 195)
-            textLabel2.TextSize = 13
-            textLabel2.TextStrokeColor3 = Color3.fromRGB(195, 195, 195)
-            textLabel2.BackgroundTransparency = 1
-            textLabel2.Position = UDim2.fromScale(0.653, 0)
-            textLabel2.Size = UDim2.fromOffset(44, 32)
-            textLabel2.Parent = slider
-
-            slider.Parent = holder  -- Make sure "holder" is defined
-
-            -- Variables to hold the active input and its connection
-            local activeInput = nil
-            local inputConnection = nil
-
-            slider.MouseEnter:Connect(function()
-                TweenService:Create(slider, TweenInfo.new(0.3), {BackgroundColor3 = Color3.fromRGB(43, 43, 43)}):Play()
-            end)
-
-            slider.MouseLeave:Connect(function()
-                if not activeInput then
-                    TweenService:Create(slider, TweenInfo.new(0.3), {BackgroundColor3 = Color3.fromRGB(38, 38, 38)}):Play()
-                end
-            end)
-
-            -- When the user starts an input (mouse or touch) on the slider:
-            slider.InputBegan:Connect(function(input)
-                if input.UserInputType == Enum.UserInputType.MouseButton1 or 
-                input.UserInputType == Enum.UserInputType.Touch then
-                    activeInput = input
-                    TweenService:Create(slider, TweenInfo.new(0.3), {BackgroundColor3 = Color3.fromRGB(47, 47, 47)}):Play()
-
-                    -- Listen for movement from the same input (whether mouse or touch)
-                    inputConnection = UserInputService.InputChanged:Connect(function(currentInput, processed)
-                        if processed then return end
-                        if currentInput == activeInput then
-                            local posX = currentInput.Position.X
-                            -- Calculate percentage using the track’s absolute position and size
-                            local percentage = math.clamp((posX - frame.AbsolutePosition.X) / frame.AbsoluteSize.X, 0, 1)
-                            local value = math.floor(((max - min) * percentage) + min)
-                            textLabel2.Text = tostring(value)
-                            frame1.Size = UDim2.new(percentage, 0, 1, 0)
-                            callback(value)
-                        end
-                    end)
-                end
-            end)
-
-            -- Use a global InputEnded to ensure the slider stops updating even if the user drags off the slider
-            UserInputService.InputEnded:Connect(function(input)
-                if activeInput and input == activeInput then
-                    activeInput = nil
-                    TweenService:Create(slider, TweenInfo.new(0.3), {BackgroundColor3 = Color3.fromRGB(38, 38, 38)}):Play()
-                    if inputConnection then
-                        inputConnection:Disconnect()
-                    end
-                end
             end)
         end
 
@@ -405,7 +289,7 @@ function Library:Create(table)
 
             local toggle1 = Instance.new("TextButton")
             toggle1.Name = "toggle1"
-            toggle1.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
+            toggle1.BackgroundColor3 = Color3.fromRGB(30, 50, 70) -- changed from (38,38,38)
             toggle1.Size = UDim2.fromOffset(441, 32)
             toggle1.Text = ""
             toggle1.AutoButtonColor = false
@@ -419,9 +303,9 @@ function Library:Create(table)
             textLabel4.Name = "textLabel4"
             textLabel4.Font = Enum.Font.Gotham
             textLabel4.Text = text
-            textLabel4.TextColor3 = Color3.fromRGB(195, 195, 195)
+            textLabel4.TextColor3 = Color3.fromRGB(200, 230, 255) -- changed from (195,195,195)
             textLabel4.TextSize = 13
-            textLabel4.TextStrokeColor3 = Color3.fromRGB(195, 195, 195)
+            textLabel4.TextStrokeColor3 = Color3.fromRGB(200, 230, 255) -- changed from (195,195,195)
             textLabel4.TextXAlignment = Enum.TextXAlignment.Left
             textLabel4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
             textLabel4.BackgroundTransparency = 1
@@ -431,7 +315,7 @@ function Library:Create(table)
 
             local frame3 = Instance.new("Frame")
             frame3.Name = "frame3"
-            frame3.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+            frame3.BackgroundColor3 = Color3.fromRGB(40, 60, 80) -- changed from (45,45,45)
             frame3.Position = UDim2.fromScale(0.943, 0.219)
             frame3.Size = UDim2.fromOffset(18, 18)
 
@@ -442,7 +326,7 @@ function Library:Create(table)
 
             local uIStroke1 = Instance.new("UIStroke")
             uIStroke1.Name = "uIStroke1"
-            uIStroke1.Color = Color3.fromRGB(76, 76, 76)
+            uIStroke1.Color = Color3.fromRGB(80, 80, 100) -- changed from (76,76,76) for off state
             uIStroke1.Parent = frame3
 
             frame3.Parent = toggle1
@@ -452,22 +336,22 @@ function Library:Create(table)
             local tog = false
 
             toggle1.MouseEnter:Connect(function()
-                game:GetService('TweenService'):Create(toggle1, TweenInfo.new(0.3), {BackgroundColor3 = Color3.fromRGB(43,43,43)}):Play()
+                game:GetService('TweenService'):Create(toggle1, TweenInfo.new(0.3), {BackgroundColor3 = Color3.fromRGB(35,55,75)}):Play()
             end)
 
             toggle1.MouseLeave:Connect(function()
-                game:GetService('TweenService'):Create(toggle1, TweenInfo.new(0.3), {BackgroundColor3 = Color3.fromRGB(38,38,38)}):Play()
+                game:GetService('TweenService'):Create(toggle1, TweenInfo.new(0.3), {BackgroundColor3 = Color3.fromRGB(30,50,70)}):Play()
             end)
 
             toggle1.MouseButton1Click:Connect(function()
                 tog = not tog
                 callback(tog)
                 if tog then
-                    game:GetService('TweenService'):Create(frame3, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(23, 143, 75)}):Play()
-                    game:GetService('TweenService'):Create(uIStroke1, TweenInfo.new(0.2), {Color = Color3.fromRGB(32, 202, 106)}):Play()
+                    game:GetService('TweenService'):Create(frame3, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(23, 143, 200)}):Play() -- aqua on
+                    game:GetService('TweenService'):Create(uIStroke1, TweenInfo.new(0.2), {Color = Color3.fromRGB(32, 202, 230)}):Play() -- aqua on stroke
                 else
-                    game:GetService('TweenService'):Create(frame3, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(45, 45, 45)}):Play()
-                    game:GetService('TweenService'):Create(uIStroke1, TweenInfo.new(0.2), {Color = Color3.fromRGB(76, 76, 76)}):Play()
+                    game:GetService('TweenService'):Create(frame3, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(40, 60, 80)}):Play() -- back to off
+                    game:GetService('TweenService'):Create(uIStroke1, TweenInfo.new(0.2), {Color = Color3.fromRGB(80, 80, 100)}):Play() -- back to off stroke
                 end
             end)
         end
@@ -478,7 +362,7 @@ function Library:Create(table)
 
             local textbox = Instance.new("Frame")
             textbox.Name = "textbox"
-            textbox.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
+            textbox.BackgroundColor3 = Color3.fromRGB(30, 50, 70) -- changed from (38,38,38)
             textbox.Size = UDim2.fromOffset(441, 32)
 
             local uICorner13 = Instance.new("UICorner")
@@ -490,9 +374,9 @@ function Library:Create(table)
             textLabel6.Name = "textLabel6"
             textLabel6.Font = Enum.Font.Gotham
             textLabel6.Text = text
-            textLabel6.TextColor3 = Color3.fromRGB(195, 195, 195)
+            textLabel6.TextColor3 = Color3.fromRGB(200, 230, 255) -- changed from (195,195,195)
             textLabel6.TextSize = 13
-            textLabel6.TextStrokeColor3 = Color3.fromRGB(195, 195, 195)
+            textLabel6.TextStrokeColor3 = Color3.fromRGB(200, 230, 255) -- matching the new text color
             textLabel6.TextXAlignment = Enum.TextXAlignment.Left
             textLabel6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
             textLabel6.BackgroundTransparency = 1
@@ -504,9 +388,9 @@ function Library:Create(table)
             textBox.Name = "textBox"
             textBox.Font = Enum.Font.SourceSans
             textBox.Text = ""
-            textBox.TextColor3 = Color3.fromRGB(195, 195, 195)
+            textBox.TextColor3 = Color3.fromRGB(200, 230, 255) -- changed from (195,195,195)
             textBox.TextSize = 12
-            textBox.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
+            textBox.BackgroundColor3 = Color3.fromRGB(25, 35, 50) -- changed from (33,33,33)
             textBox.Position = UDim2.fromScale(0.864, 0.188)
             textBox.Size = UDim2.fromOffset(52, 19)
 
@@ -519,11 +403,11 @@ function Library:Create(table)
             textbox.Parent = holder
 
             textbox.MouseEnter:Connect(function()
-                game:GetService('TweenService'):Create(textbox, TweenInfo.new(0.3), {BackgroundColor3 = Color3.fromRGB(43,43,43)}):Play()
+                game:GetService('TweenService'):Create(textbox, TweenInfo.new(0.3), {BackgroundColor3 = Color3.fromRGB(35,55,75)}):Play()
             end)
 
             textbox.MouseLeave:Connect(function()
-                game:GetService('TweenService'):Create(textbox, TweenInfo.new(0.3), {BackgroundColor3 = Color3.fromRGB(38,38,38)}):Play()
+                game:GetService('TweenService'):Create(textbox, TweenInfo.new(0.3), {BackgroundColor3 = Color3.fromRGB(30,50,70)}):Play()
             end)
 
             textBox.FocusLost:Connect(function()
