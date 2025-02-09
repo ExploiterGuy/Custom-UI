@@ -1,13 +1,13 @@
 for _,v in pairs(game.CoreGui:GetChildren()) do
-    if v.Name == "dark_UI" then
+    if v.Name == "Aqua_UI" then
         v:Destroy()
     end
 end
 
-local dark_UI = Instance.new("ScreenGui")
-dark_UI.Name = "dark_UI"
-dark_UI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-dark_UI.Parent = game.CoreGui
+local Aqua_UI = Instance.new("ScreenGui")
+Aqua_UI.Name = "Aqua_UI"
+Aqua_UI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+Aqua_UI.Parent = game.CoreGui
 
 local Library = {}
 local TweenService = game:GetService("TweenService")
@@ -39,6 +39,37 @@ function Library:Create(table)
     title.Size = UDim2.fromOffset(83, 28)
     title.Parent = main
 
+    -- Toggle Button for minimizing and maximizing the frame
+    local isMinimized = false
+    local originalSize = main.Size
+    local toggleButton = Instance.new("TextButton")
+    toggleButton.Name = "ToggleButton"
+    toggleButton.Text = "-"  -- indicates that clicking will minimize
+    toggleButton.Font = Enum.Font.Gotham
+    toggleButton.TextSize = 20
+    toggleButton.TextColor3 = Color3.fromRGB(200,230,255)
+    toggleButton.BackgroundColor3 = Color3.fromRGB(20, 30, 40)  -- matching main background
+    toggleButton.BackgroundTransparency = 1
+    toggleButton.Size = UDim2.fromOffset(30, 30)
+    toggleButton.Position = UDim2.new(1, -35, 0, 5)  -- top-right corner; adjust as needed
+    toggleButton.Parent = main
+
+    toggleButton.MouseButton1Click:Connect(function()
+        if isMinimized then
+            TweenService:Create(main, TweenInfo.new(0.3), {Size = originalSize}):Play()
+            isMinimized = false
+            toggleButton.Text = "-"
+            tabContainer.Visible = true
+        else
+            local titleHeight = title.AbsoluteSize.Y
+            local minimizedSize = UDim2.new(originalSize.X.Scale, originalSize.X.Offset, 0, titleHeight + 10)
+            TweenService:Create(main, TweenInfo.new(0.3), {Size = minimizedSize}):Play()
+            isMinimized = true
+            toggleButton.Text = "+"
+            tabContainer.Visible = false
+        end
+    end)
+
     local uICorner = Instance.new("UICorner")
     uICorner.Name = "uICorner"
     uICorner.Parent = main
@@ -68,7 +99,7 @@ function Library:Create(table)
     uIPadding.Parent = tabContainer
 
     tabContainer.Parent = main
-    main.Parent = dark_UI
+    main.Parent = Aqua_UI
     main.AnchorPoint = Vector2.new(0.5,0.5)
 
     main.Position = UDim2.new(0.5,0,0.5,0)
@@ -119,7 +150,7 @@ function Library:Create(table)
     local tabHandler = {}
 
     function tabHandler:Exit()
-        dark_UI:Destroy()
+        Aqua_UI:Destroy()
     end
 
     function tabHandler:Tab(name)
@@ -184,12 +215,12 @@ function Library:Create(table)
 
         --// Event
         main1.MouseButton1Click:Connect(function()
-            for _,v in pairs(game.CoreGui:FindFirstChild('dark_UI').main:GetChildren()) do
+            for _,v in pairs(game.CoreGui:FindFirstChild('Aqua_UI').main:GetChildren()) do
                 if v.Name == "container" then
                     v.Visible = false
                 end
             end
-            for _,v in pairs(game.CoreGui['dark_UI'].main.tabContainer:GetChildren()) do
+            for _,v in pairs(game.CoreGui['Aqua_UI'].main.tabContainer:GetChildren()) do
                 if v:IsA('TextButton') then
                     game:GetService('TweenService'):Create(v, TweenInfo.new(0.3), {TextTransparency = 0.5}):Play()
                 end
@@ -423,7 +454,7 @@ function Library:Create(table)
             if Key.UserInputType == Enum.UserInputType.MouseButton1 then
                 local ObjectPosition = Vector2.new(Mouse.X - main.AbsolutePosition.X, Mouse.Y - main.AbsolutePosition.Y)
                 while RunService.RenderStepped:wait() and UserInputService:IsMouseButtonPressed(Enum.UserInputType.MouseButton1) do
-                    local FrameX, FrameY = math.clamp(Mouse.X - ObjectPosition.X, 0, dark_UI.AbsoluteSize.X - main.AbsoluteSize.X), math.clamp(Mouse.Y - ObjectPosition.Y, 0, dark_UI.AbsoluteSize.Y - main.AbsoluteSize.Y)
+                    local FrameX, FrameY = math.clamp(Mouse.X - ObjectPosition.X, 0, Aqua_UI.AbsoluteSize.X - main.AbsoluteSize.X), math.clamp(Mouse.Y - ObjectPosition.Y, 0, Aqua_UI.AbsoluteSize.Y - main.AbsoluteSize.Y)
                     game:GetService('TweenService'):Create(main, TweenInfo.new(0.1), {Position = UDim2.fromOffset(FrameX + (main.Size.X.Offset * main.AnchorPoint.X), FrameY + (main.Size.Y.Offset * main.AnchorPoint.Y))}):Play()
                     game:GetService('TweenService'):Create(shadow, TweenInfo.new(0.1), {Position = UDim2.fromOffset(FrameX + (main.Size.X.Offset * main.AnchorPoint.X), FrameY + (main.Size.Y.Offset * main.AnchorPoint.Y))}):Play()
                 end
@@ -432,12 +463,12 @@ function Library:Create(table)
     end)
 
     --// Make the first tab visible
-    game.CoreGui['dark_UI'].main.tabContainer.ChildAdded:Connect(function()
-        game.CoreGui['dark_UI'].main:FindFirstChild('container').Visible = true
+    game.CoreGui['Aqua_UI'].main.tabContainer.ChildAdded:Connect(function()
+        game.CoreGui['Aqua_UI'].main:FindFirstChild('container').Visible = true
         pcall(function()
-            repeat wait() until game.CoreGui['dark_UI'].main:FindFirstChild('tabContainer'):FindFirstChildWhichIsA('TextButton')
+            repeat wait() until game.CoreGui['Aqua_UI'].main:FindFirstChild('tabContainer'):FindFirstChildWhichIsA('TextButton')
         end)
-        game:GetService('TweenService'):Create(game.CoreGui['dark_UI'].main:FindFirstChild('tabContainer'):FindFirstChildWhichIsA('TextButton'), TweenInfo.new(0.3), {TextTransparency = 0}):Play()
+        game:GetService('TweenService'):Create(game.CoreGui['Aqua_UI'].main:FindFirstChild('tabContainer'):FindFirstChildWhichIsA('TextButton'), TweenInfo.new(0.3), {TextTransparency = 0}):Play()
     end)
 
     spawn(function()
