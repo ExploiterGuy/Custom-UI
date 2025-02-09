@@ -27,49 +27,6 @@ function Library:Create(table)
     main.Position = UDim2.fromScale(0.244, 0.292)
     main.Size = UDim2.fromOffset(488, 299)
 
-    local TS = game:GetService("TweenService")
-    local UIS = game:GetService("UserInputService")
-
-    function dragify(Frame)
-        local dragToggle = nil
-        local dragInput = nil
-        local dragStart = nil
-        local startPos = nil
-
-        local function updateInput(input)
-            local Delta = input.Position - dragStart
-            local Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
-            TS:Create(Frame, TweenInfo.new(0.3), {Position = Position}):Play()
-        end
-
-        Frame.InputBegan:Connect(function(input)
-            if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) and UIS:GetFocusedTextBox() == nil then
-                dragToggle = true
-                dragStart = input.Position
-                startPos = Frame.Position
-                input.Changed:Connect(function()
-                    if input.UserInputState == Enum.UserInputState.End then
-                        dragToggle = false
-                    end
-                end)
-            end
-        end)
-
-        Frame.InputChanged:Connect(function(input)
-            if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-                dragInput = input
-            end
-        end)
-
-        UIS.InputChanged:Connect(function(input)
-            if input == dragInput and dragToggle then
-                updateInput(input)
-            end
-        end)
-    end
-
-    dragify(main)
-    
     local title = Instance.new("TextLabel")
     title.Name = "title"
     title.Font = Enum.Font.Gotham
@@ -132,6 +89,49 @@ function Library:Create(table)
     main.Position = UDim2.new(0.5,0,0.5,0)
     shadow.Position = UDim2.new(0.5,0,0.5,0)
 
+    local TS = game:GetService("TweenService")
+    local UIS = game:GetService("UserInputService")
+
+    function dragify(Frame)
+        local dragToggle = nil
+        local dragInput = nil
+        local dragStart = nil
+        local startPos = nil
+
+        local function updateInput(input)
+            local Delta = input.Position - dragStart
+            local Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
+            TS:Create(Frame, TweenInfo.new(0.3), {Position = Position}):Play()
+        end
+
+        Frame.InputBegan:Connect(function(input)
+            if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) and UIS:GetFocusedTextBox() == nil then
+                dragToggle = true
+                dragStart = input.Position
+                startPos = Frame.Position
+                input.Changed:Connect(function()
+                    if input.UserInputState == Enum.UserInputState.End then
+                        dragToggle = false
+                    end
+                end)
+            end
+        end)
+
+        Frame.InputChanged:Connect(function(input)
+            if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+                dragInput = input
+            end
+        end)
+
+        UIS.InputChanged:Connect(function(input)
+            if input == dragInput and dragToggle then
+                updateInput(input)
+            end
+        end)
+    end
+
+    dragify(main)
+    
     local tabHandler = {}
 
     function tabHandler:Exit()
